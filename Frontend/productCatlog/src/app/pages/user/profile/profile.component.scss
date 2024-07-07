@@ -1,0 +1,27 @@
+
+$primary-color: #49435B;
+$secondary-color:  #a1a1a1;
+$text-color:  black;
+
+
+.card {
+border: none;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-header {
+background-color: $primary-color;
+color: $text-color;
+}
+
+.card-body {
+background-color: $secondary-color;
+color: $text-color;
+}
+
+.profile-img {
+width: 100px;
+height: 100px;
+object-fit: cover;
+border-radius: 50%;
+}

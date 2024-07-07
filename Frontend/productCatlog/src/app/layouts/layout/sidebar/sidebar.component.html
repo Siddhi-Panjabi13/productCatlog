@@ -1,0 +1,44 @@
+<div class="col-auto col-2  px-sm-2 px-0  sticky-bottom h-100 position-fixed main-sidebar ">
+    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+        <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <span class="fs-5 d-none d-sm-inline">Menu</span>
+        </a>
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+            <li class="nav-item">
+                <a [routerLink]="['/layouts/event/getEvents']"  class="nav-link align-middle px-0 text-white text-decoration-none">
+                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#submenu1" data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle text-white text-decoration-none">
+                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
+                <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a [routerLink]="['/layouts/event/getEvents']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">View Products</span>  </a>
+                    </li>
+                    <li>
+                            <a [routerLink]="['/layouts/event/addEvent']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Add Products
+                        </span>  </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#submenu2" data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle text-white text-decoration-none">
+                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Categories</span> </a>
+                <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a [routerLink]="['/layouts/event/getEvents']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">View Categories</span>  </a>
+                    </li>
+                    <li>
+                            <a [routerLink]="['/layouts/event/addEvent']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Add Categories
+                        </span>  </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <hr>
+
+    </div>
+</div>

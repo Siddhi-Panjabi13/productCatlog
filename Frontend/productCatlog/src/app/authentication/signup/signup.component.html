@@ -1,0 +1,61 @@
+<div class="container-fluid d-flex mx-auto">
+    <form class="w-25  mx-auto border border-1 p-3 rounded-3 mt-5 shadow" [formGroup]="registrationForm"
+        (ngSubmit)="registerUser()">
+        <h3 class="text-center text-success fw-bold my-2" *ngIf="isSubmit">SignUp</h3>
+        <h3 class="text-center text-success fw-bold my-2" *ngIf="isUpdate">Edit</h3>
+        <div class="form-group">
+            <label for="userName">Username</label>
+            <input type="text" name="userName" class="form-control" placeholder="enter username"
+                aria-describedby="helpId" formControlName="userName"
+                [ngClass]="{'is-invalid':data['userName'].invalid&&(data['userName'].touched||data['userName'].dirty), 'form-control':true}">
+            <div *ngIf="data['userName']?.invalid&&(data['userName']?.touched||data['userName']?.dirty)"
+                class="alert alertText alert-danger">
+                <div *ngIf="data['userName']?.errors?.['required']">
+                    Username is mandatory field
+                </div>
+                <div *ngIf="data['userName']?.errors?.['minlength']">
+                    Username should have atleast 2 characters.
+                </div>
+                <div *ngIf="data['userName']?.errors?.['pattern']">
+                    Username can have only characters and space.
+                </div>
+            </div>
+        </div>
+        <div class="form-group" *ngIf="isSubmit">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="enter password" aria-describedby="
+                helpId" formControlName="password"
+                [ngClass]="{'is-invalid':data['password'].invalid &&(data['password'].touched||data['password'].dirty)}">
+            <div class="alert alert-danger alertText"
+                *ngIf="data['password'].invalid &&(data['password'].touched||data['password'].dirty)">
+                <div *ngIf="data['password'].errors?.['required']">
+                    Password is mandatory
+                </div>
+                <div *ngIf="data['password']?.errors?.['pattern']">
+                    Enter a strong password. It consists of atleast one special character and atleast one number and
+                    atleast one capital letter.
+                </div>
+            </div>
+        </div>
+        <div class="form-group" *ngIf="isSubmit">
+            <label for="role">Role</label>
+            <select class="form-select" name="role" formControlName="role"
+            [ngClass]="{'is-invalid':data['role'].invalid&&(data['role'].touched||data['role'].dirty), 'form-control':true}"
+            >
+                <option value="">Select Role</option>
+                <option value="User">User</option>
+                <option value="Admin">Admin</option>
+            </select>
+            <div class="alert alert-danger alertText"
+                *ngIf="data['role'].invalid &&(data['role'].touched||data['role'].dirty)">
+                <div *ngIf="data['role'].errors?.['required']">
+                    Role is mandatory
+                </div>
+            </div>
+        </div>
+        <p class="my-2" *ngIf="isSubmit">Already have an account? <span><a class="text-decoration-none" [routerLink]="['/auth/login']"
+                    routerLinkActive="router-link-active">Login</a></span></p>
+        <button type="submit" class="btn btn-success px-4  d-block mx-auto mt-3" *ngIf="isSubmit">Register</button>
+        <button type="submit" class="btn btn-success px-4  d-block mx-auto mt-3" *ngIf="isUpdate">Save</button>
+    </form>
+</div>
