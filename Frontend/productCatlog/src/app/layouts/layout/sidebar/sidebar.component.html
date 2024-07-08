@@ -17,22 +17,22 @@
                     <li class="w-100">
                         <a [routerLink]="['/layouts/event/getEvents']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">View Products</span>  </a>
                     </li>
-                    <li>
+                    <li *ngIf="role==='Admin'">
                             <a [routerLink]="['/layouts/event/addEvent']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Add Products
                         </span>  </a>
                     </li>
                 </ul>
             </li>
-            <li>
+            <li *ngIf="role==='Admin'">
                 <a href="#submenu2" data-bs-toggle="collapse"
                     class="nav-link px-0 align-middle text-white text-decoration-none">
                     <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Categories</span> </a>
                 <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a [routerLink]="['/layouts/event/getEvents']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">View Categories</span>  </a>
+                        <a [routerLink]="['/layouts/category/viewCategory']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">View Categories</span>  </a>
                     </li>
                     <li>
-                            <a [routerLink]="['/layouts/event/addEvent']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Add Categories
+                            <a (click)="openAddCategoryDialog()" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Add Categories
                         </span>  </a>
                     </li>
                 </ul>

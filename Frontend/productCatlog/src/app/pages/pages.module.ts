@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { UserModule } from './user/user.module';
+import { CategoriesModule } from './categories/categories.module';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { UserModule } from './user/user.module';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    UserModule
+    UserModule,
+    CategoriesModule
   ]
 })
 export class PagesModule { }
