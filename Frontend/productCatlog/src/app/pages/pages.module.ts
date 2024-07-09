@@ -14,7 +14,6 @@ import { ProductsModule } from './products/products.module';
     PagesRoutingModule,
     UserModule,
     CategoriesModule,
-
     ProductsModule
   ]
 })

@@ -28,6 +28,7 @@ export const errorHandlerMiddleware = (err: any, req: Request, res: Response, ne
     });
   }
   else {
+    console.log(err)
     res.status(500).json({
       status: false,
       statusCode: 500,

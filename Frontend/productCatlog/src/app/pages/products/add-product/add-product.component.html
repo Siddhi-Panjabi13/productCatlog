@@ -21,7 +21,7 @@
   
       <div class="mb-3">
         <label for="imageURL" class="form-label">Image URL</label>
-        <input type="file" id="imageURL" formControlName="imageURL" class="form-control" [ngClass]="{'is-invalid': productForm.get('imageURL')?.invalid && productForm.get('imageURL')?.touched}">
+        <input type="file" id="imageURL" formControlName="imageURL" class="form-control" (change)="fileSelected($event)" [ngClass]="{'is-invalid': productForm.get('imageURL')?.invalid && productForm.get('imageURL')?.touched}">
         <div *ngIf="productForm.get('imageURL')?.invalid && productForm.get('imageURL')?.touched" class="invalid-feedback">
           Image URL is required.
         </div>
@@ -40,11 +40,11 @@
         <!-- <input type="text" id="categoryId" formControlName="categoryId" class="form-control" [ngClass]="{'is-invalid': productForm.get('categoryId')?.invalid && productForm.get('categoryId')?.touched}"> -->
          <div class="form-group">
            
-           <select class="form-control" name="category">
+           <select class="form-select" name="category" formControlName="category" [ngClass]="{'is-invalid': productForm.get('category')?.invalid && productForm.get('category')?.touched}">
              <option *ngFor="let category of categories" [value]="category._id?.toString()">{{category.categoryName}}</option>
            </select>
          </div>
-        <div *ngIf="productForm.get('categoryId')?.invalid && productForm.get('categoryId')?.touched" class="invalid-feedback">
+        <div *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched" class="invalid-feedback">
           Category ID is required.
         </div>
       </div>
