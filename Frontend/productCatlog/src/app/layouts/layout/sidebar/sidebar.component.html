@@ -15,10 +15,10 @@
                     <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
                 <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a [routerLink]="['/layouts/event/getEvents']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">View Products</span>  </a>
+                        <a [routerLink]="['/layouts/product/getProducts']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">View Products</span>  </a>
                     </li>
                     <li *ngIf="role==='Admin'">
-                            <a [routerLink]="['/layouts/event/addEvent']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Add Products
+                            <a [routerLink]="['/layouts/product/addProduct']" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Add Products
                         </span>  </a>
                     </li>
                 </ul>

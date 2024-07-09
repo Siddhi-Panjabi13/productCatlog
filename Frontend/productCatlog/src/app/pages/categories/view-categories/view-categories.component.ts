@@ -29,5 +29,14 @@ export class ViewCategoriesComponent {
     modalRef.componentInstance.category = category;
     return modalRef.result;
   }
+  deleteCategory(category:ICATEGORY){
+
+    this.categoryService.deleteCategory(category._id).subscribe((response)=>{
+      Swal.fire('Good Job', `${response.message}`,'success')
+      this.getCategories()
+    },(error)=>{
+      Swal.fire('Oops',`${error.message}`,'error')
+    })
+  }
   }
 

@@ -42,6 +42,7 @@ export class AddCategoriesComponent {
       else{
         this.categoryService.updateCategory(this.category._id,this.categoryForm.value).subscribe((response)=>{
           Swal.fire('Good Job',`${response.message}`,'success');
+          this.activeModal.close(this.categoryForm.value);
         },(error)=>{
           Swal.fire('Oops', `${error.message}`, 'error')
 
@@ -49,4 +50,5 @@ export class AddCategoriesComponent {
       }
     }
   }
+  
 }

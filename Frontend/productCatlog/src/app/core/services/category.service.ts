@@ -14,7 +14,9 @@ export class CategoryService {
     return this.httpClient.get('http://localhost:8000/api/categories/getCategories');
   }
   updateCategory(id:any,categoryData:any):Observable<any>{
-    console.log(id,categoryData)
     return this.httpClient.put(`http://localhost:8000/api/categories/updateCategory/${id}`,categoryData);
+  }
+  deleteCategory(id:any):Observable<any>{
+    return this.httpClient.delete(`http://localhost:8000/api/categories/deleteCategory/${id}`);
   }
 }
