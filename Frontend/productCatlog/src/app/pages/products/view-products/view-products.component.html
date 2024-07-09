@@ -1,3 +1,7 @@
+<div class="col-10 mt-3 me-0  container-fluid">
+<input type="text" class="form-control me-2 w-25 ms-auto" placeholder="Search here?" (input)="search()"
+        [(ngModel)]="query" />
+</div> 
 <div class="col-10 mt-3 me-0 border border-1 container-fluid">
     <div class="row">
       <div class="col-md-4" *ngFor="let product of products">

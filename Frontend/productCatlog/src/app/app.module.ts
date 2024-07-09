@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LayoutsModule } from './layouts/layouts.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { ProductsModule } from './pages/products/products.module';
 
 @NgModule({
   declarations: [
@@ -23,11 +24,14 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
-    LayoutsModule
+    LayoutsModule,
+    FormsModule,
+    ProductsModule
   ],
   providers: [
     { provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor , multi: true }
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

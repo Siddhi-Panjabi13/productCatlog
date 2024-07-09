@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { ProductCardComponent } from './view-products/product-card/product-card.component';
 
@@ -14,12 +14,14 @@ import { ProductCardComponent } from './view-products/product-card/product-card.
     ViewProductComponent,
     AddProductComponent,
     ViewProductsComponent,
-    ProductCardComponent
+    ProductCardComponent,
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  exports: [ProductCardComponent]
 })
 export class ProductsModule { }

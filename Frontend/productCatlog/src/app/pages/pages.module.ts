@@ -5,6 +5,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { UserModule } from './user/user.module';
 import { CategoriesModule } from './categories/categories.module';
 import { ProductsModule } from './products/products.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ProductsModule } from './products/products.module';
     PagesRoutingModule,
     UserModule,
     CategoriesModule,
-    ProductsModule
+    ProductsModule,
+    FormsModule
   ]
 })
 export class PagesModule { }

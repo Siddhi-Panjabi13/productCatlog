@@ -1,11 +1,67 @@
-import mongoose from "mongoose";
+import mongoose, { PipelineStage } from "mongoose";
 import { IPRODUCT, IUPDATEPRODUCT } from "../interfaces";
 import { Product } from "../models";
 import { ErrorHandler } from "../handlers/errorHandler";
 import fs from 'fs'
 export class ProductService {
-    async getProductsService():Promise<IPRODUCT[]>{
-        const products=await Product.find({});
+    async getProductsService(query?:string):Promise<IPRODUCT[]>{
+        const searchQuery:PipelineStage.Match|null=query?
+        {
+            $match: {
+              $or: [
+                {
+                  productName:{
+                    $regex: query,
+                    $options: "i",
+                  },
+                },
+                {
+                  description: {
+                    $regex: query,
+                    $options: "i",
+                  },
+                },
+                {
+                  category_name: {
+                    $regex: query,
+                    $options: "i",
+                  },
+                },
+              ],
+            },
+          }
+        : null;
+        const pipeline:PipelineStage[]=[
+            {
+              $lookup: {
+                from: "categories",
+                localField: "categoryId",
+                foreignField: "_id",
+                as: "category_obj",
+              },
+            },
+            {
+              $unwind: {
+                path: "$category_obj",
+              },
+            },
+            {
+              $addFields: {
+                category_name: "$category_obj.categoryName",
+              },
+            },
+          ];
+          if(searchQuery){
+            pipeline.push(searchQuery)
+          }
+          const products = await Product.aggregate(pipeline);
+ 
+          if (!products) {
+            throw new ErrorHandler(404,'Product not found',false );
+          }
+          if (products.length == 0) {
+            throw new ErrorHandler(400,'No content available',false );
+          }
         return products
     }
     async createProductService(productData:IPRODUCT):Promise<IPRODUCT> {
