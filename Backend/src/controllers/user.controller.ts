@@ -23,7 +23,8 @@ export class UserController {
                 res.status(err.statusCode).json({ message: err.message });
             }
             else if(err.errorResponse.code===11000){
-                res.status(409).json({message:"Duplicate email entered." });
+                console.log(err)
+                res.status(409).json({message:"Duplicate username entered." });
             }
             else{
                 res.status(500).json({ message: err.message });

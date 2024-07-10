@@ -20,11 +20,11 @@ export class ProductController {
       );
       res.json(products);
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       if (err instanceof ErrorHandler) {
         res.status(err.statusCode).json(err.message);
       } else {
-        console.log(err)
+        // console.log(err)
         res.status(500).json("Internal server error");
       }
     }
