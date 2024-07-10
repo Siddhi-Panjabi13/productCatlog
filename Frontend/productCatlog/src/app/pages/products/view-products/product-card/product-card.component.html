@@ -1,11 +1,13 @@
 <div class="card" style="width: 18rem;">
-    <img [src]="getSafeUrl(product.imageURL)" class="card-img-top" [alt]="getSafeUrl(product.imageURL)">
+    <div style="height: 200px;">
+    <img [src]="getSafeUrl(product.imageURL)" class="h-100 img-fluid w-100" [alt]="getSafeUrl(product.imageURL)">
+  </div>
     <div class="card-body">
       <h5 class="card-title">{{ product.productName }}</h5>
       <p class="card-text">{{ product.description }}</p>
       <p class="card-text">Price: {{ product.price | currency }}</p>
       <div class="d-flex gap-2">
-      <a [routerLink]="['/product', product._id]" class="btn btn-primary">View Details</a>
+      <a (click)="viewProduct()"  class="btn btn-primary">View Details</a>
       <a (click)="editProduct()" class="btn btn-warning" *ngIf="role==='Admin'" >Edit</a>
       <a (click)="deleteProduct()" class="btn btn-danger" *ngIf="role==='Admin'">Delete</a>
     </div>

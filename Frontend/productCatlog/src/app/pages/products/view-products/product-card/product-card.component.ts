@@ -16,7 +16,7 @@ export class ProductCardComponent {
   constructor(private sanitizer: DomSanitizer, private userService: UserService, private router: Router, private productService: ProductService) { }
   @Input() product!: IPRODUCT;
   role!: string | null;
-
+  
   ngOnInit() {
     this.getRole()
   }
@@ -66,5 +66,8 @@ export class ProductCardComponent {
     }, (error) => {
       Swal.fire('Oops', `${error.message}`, 'error')
     })
+  }
+  viewProduct(){
+    this.router.navigate([`/layouts/product/viewProduct/${this.product._id}`])
   }
 }

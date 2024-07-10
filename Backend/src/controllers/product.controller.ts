@@ -1,5 +1,5 @@
 import { ErrorHandler } from "../handlers/errorHandler";
-import { IPRODUCT } from "../interfaces";
+import { IPRODUCT, IPRODUCTFILTER } from "../interfaces";
 import { ProductService } from "../services";
 import { Request, Response } from "express";
 import mongoose from "mongoose";
@@ -7,15 +7,24 @@ export class ProductController {
   constructor(private productService: ProductService) {}
   async getProducts(req: Request, res: Response): Promise<void> {
     try {
-      const { query } = req.query;
+      let { query,categoryName,minPrice,maxPrice }:any = req.query;
+      console.log(req.query)
+      if(categoryName){
+
+        categoryName=new mongoose.Types.ObjectId(categoryName)
+      }
+
+      const filters={query,categoryName,minPrice,maxPrice}
       const products = await this.productService.getProductsService(
-        query as string
+        filters
       );
       res.json(products);
     } catch (err) {
+      console.log(err)
       if (err instanceof ErrorHandler) {
         res.status(err.statusCode).json(err.message);
       } else {
+        console.log(err)
         res.status(500).json("Internal server error");
       }
     }
@@ -55,7 +64,6 @@ export class ProductController {
         res.json({ message: "Product created successfully" });
       }
     } catch (err) {
-      console.log(err);
       if (err instanceof ErrorHandler) {
         res.status(err.statusCode).json(err.message);
       } else {

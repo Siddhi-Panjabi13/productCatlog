@@ -1,4 +1,4 @@
-import { Category } from "../models";
+import { Category, Product } from "../models";
 import { ICATEGORY } from "../interfaces";
 import mongoose from "mongoose";
 import { ErrorHandler } from "../handlers/errorHandler";
@@ -28,5 +28,12 @@ export class CategoryService{
             throw new ErrorHandler(404,'Category not found...',false)
         }
         return({message:'Category updated successfully'}) 
+    }
+    async getCategoryById(id:mongoose.Types.ObjectId){
+        const category=await Category.findOne({_id:id});
+        if(!category){
+            throw new ErrorHandler(404,'Category not found',false);
+        }
+        return category;
     }
 } 

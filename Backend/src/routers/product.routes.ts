@@ -19,5 +19,5 @@ router.put('/updateProduct/:id',upload.fields([{
 }])
 , verifyRole(['Admin']),(req:Request,res:Response)=>productController.editProduct(req,res))
 router.delete('/deleteProduct/:id',verifyRole(['Admin']), (req: Request, res: Response) => productController.deleteProduct(req, res))
-router.get('/getProductById/:id',verifyRole(['Admin']),(req: Request, res: Response) => productController.getProductById(req,res))
+router.get('/getProductById/:id',(req: Request, res: Response) => productController.getProductById(req,res))
 export default router;

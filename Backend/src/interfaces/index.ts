@@ -4,4 +4,5 @@ import { IUPDATEUSER } from "./updateuser.interface";
 import { ICATEGORY } from "./category.interface";
 import { IPRODUCT } from "./product.interface";
 import { IUPDATEPRODUCT } from "./updateProduct.interface";
-export {IUSER, IUPDATEUSER,IREQUEST,ICATEGORY,IPRODUCT,IUPDATEPRODUCT} 
+import { IPRODUCTFILTER } from "./productFilterSearching.interface";
+export {IUSER, IUPDATEUSER,IREQUEST,ICATEGORY,IPRODUCT,IUPDATEPRODUCT,IPRODUCTFILTER} 

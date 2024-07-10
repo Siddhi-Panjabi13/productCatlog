@@ -19,4 +19,7 @@ export class CategoryService {
   deleteCategory(id:any):Observable<any>{
     return this.httpClient.delete(`http://localhost:8000/api/categories/deleteCategory/${id}`);
   }
+  getCategoryById(id:any){
+    return this.httpClient.get(`http://localhost:8000/api/categories/getCategoryById/${id}`);
+  }
 }
