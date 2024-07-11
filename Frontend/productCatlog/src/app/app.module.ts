@@ -11,6 +11,7 @@ import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LayoutsModule } from './layouts/layouts.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { ProductsModule } from './pages/products/products.module';
+import { ExtrapagesModule } from './extrapages/extrapages.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductsModule } from './pages/products/products.module';
     HttpClientModule,
     LayoutsModule,
     FormsModule,
-    ProductsModule
+    ProductsModule,
+    ExtrapagesModule
   ],
   providers: [
     { provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor , multi: true }

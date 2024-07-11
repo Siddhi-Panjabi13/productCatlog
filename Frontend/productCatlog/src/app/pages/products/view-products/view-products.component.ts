@@ -59,7 +59,10 @@ export class ViewProductsComponent {
       const [min, max] = this.selectedPriceRange.split('-').map(Number);
       this.minPrice = isNaN(min) ? undefined : min;
       this.maxPrice = isNaN(max) ? undefined : max;
-    } 
+    } else {
+      this.minPrice = undefined;
+      this.maxPrice = undefined;
+    }
     this.getProducts();
   }
 }

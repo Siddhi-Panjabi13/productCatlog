@@ -10,7 +10,9 @@ const routes: Routes = [
     children: [
       { path: '', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) },
     ],
-  }
+  },
+  {path:'unauthorized',
+    loadChildren: () => import('./extrapages/extrapages.module').then(m => m.ExtrapagesModule)}
 ];
 
 @NgModule({

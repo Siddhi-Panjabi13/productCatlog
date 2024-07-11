@@ -55,4 +55,8 @@ export class UserService {
     return this.httpClient.delete(`http://localhost:8000/api/users/deleteUser/${id}`)
 
   }
+  hasRole(requiredRoles: string[]): boolean {
+    const userRoles = this.getRole();
+    return requiredRoles.some(role => role===userRoles);
+  }
 }
